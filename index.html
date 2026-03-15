@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMDNotes</title>
+    <link rel="icon" type="image/png" href="loguito-removebg-preview.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>PMDNotes: Calculadora de Promedio</h1>
+        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-label">Carrera</span>
+                <select id="filterMajor" onchange="filterCourses()">
+                    <option value="all">Todas</option>
+                    <option value="ind">Industrial</option>
+                    <option value="sist">Sistemas</option>
+                    <option value="soft">Software</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Ciclo</span>
+                <select id="filterCycle" onchange="filterCourses()">
+                    <option value="all">Todos</option>
+                    <script>for(let i=1;i<=10;i++) document.write(`<option value="${i}">Ciclo ${i}</option>`);</script>
+                    <option value="ELEC">Electivos</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Modo de Cálculo</span>
+                <select id="calcMode" onchange="calculate()">
+                    <option value="dynamic">Dinámico (Notas actuales)</option>
+                    <option value="strict">Estricto (Faltantes = 0)</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <span class="filter-label" style="visibility:hidden">.</span>
+                <button class="btn-reset" onclick="resetFilters()">↺ Reset</button>
+            </div>
+
+            <div class="filter-group" style="flex-grow:1;">
+                <span class="filter-label">Seleccionar Curso</span>
+                <select id="courseSelector" class="course-selector"></select>
+            </div>
+            
+            <div class="filter-group">
+                <span class="filter-label" style="visibility:hidden">.</span>
+                <button class="btn-add" onclick="addSelectedCourse()">+ Añadir Curso</button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label" style="visibility:hidden">.</span>
+                <button class="btn-clear-storage" onclick="clearAllData()">🗑️ Borrar Datos</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%; text-align:left;">Curso</th>
+                    <th style="width: 7%">Créditos</th>
+                    <th style="width: 35%">Evaluaciones</th>
+                    <th style="width: 20%">Exámenes</th>
+                    <th style="width: 8%">Final</th>
+                    <th style="width: 8%">Promedio</th>
+                    <th style="width: 5%"></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="results" style="justify-content: space-between; align-items: center;">
+        
+        <div class="slot-wrapper">
+            <span class="filter-label" style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 5px; display: block;">💾 Guardar perfil en:</span>
+            <div class="slot-menu-container">
+                <button class="slot-main-btn">
+    <span id="currentSlotDisplay">Slot 1</span> 
+    <span class="edit-slot-btn" onclick="renameCurrentSlot(event)" title="Renombrar perfil">✏️</span>
+    <span>▶</span>
+</button>
+                
+                <div class="slot-options">
+                    <button class="slot-btn active-slot" onclick="switchSlot('1')" id="btn-slot-1">1</button>
+                    <button class="slot-btn" onclick="switchSlot('2')" id="btn-slot-2">2</button>
+                    <button class="slot-btn" onclick="switchSlot('3')" id="btn-slot-3">3</button>
+                    <button class="slot-btn" onclick="switchSlot('4')" id="btn-slot-4">4</button>
+                    <button class="slot-btn" onclick="switchSlot('5')" id="btn-slot-5">5</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 50px;">
+            <div class="res-box"><div class="res-lbl">Créditos</div><div class="res-val" id="totalCredits">0</div></div>
+            <div class="res-box"><div class="res-lbl">Promedio Ponderado</div><div class="res-val" id="weightedAverage">0.0</div></div>
+        </div>
+        
+    </div>
+
+<script src="cursos.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
