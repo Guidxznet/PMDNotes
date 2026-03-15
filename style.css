@@ -71,3 +71,41 @@ td { padding: 12px; border: 1px solid var(--border-table); vertical-align: middl
     overflow: hidden;
     text-overflow: ellipsis; /* Pone "..." si el texto es muy largo */
 }
+
+/* =========================================================
+   📱 OPTIMIZACIÓN PARA CELULARES
+   ========================================================= */
+@media (max-width: 768px) {
+    .filter-bar { display: flex; flex-direction: column; gap: 12px; }
+    .filter-group { width: 100%; margin-right: 0; }
+    
+    .filter-group select, .filter-group button, .course-selector {
+        width: 100%; min-width: 100%; padding: 14px 10px; font-size: 1rem;
+    }
+    
+    .filter-group span[style*="visibility:hidden"] { display: none !important; }
+    
+    .table-responsive {
+        width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        margin: 15px 0; border: 1px solid var(--border-table); border-radius: 8px;
+    }
+    
+    table { min-width: 700px; }
+    
+    .results {
+        flex-direction: column-reverse !important; align-items: stretch !important;
+        gap: 25px !important; padding: 20px 15px;
+    }
+    
+    .results > div[style*="display: flex"] { flex-direction: column; gap: 15px !important; width: 100%; }
+    .res-box { width: 100%; justify-content: space-between; }
+    
+    .slot-wrapper { width: 100%; }
+    .slot-menu-container { width: 100%; flex-direction: column; align-items: stretch; padding: 10px; }
+    .slot-main-btn { justify-content: center; width: 100%; }
+    
+    .slot-options {
+        max-width: 100%; opacity: 1; overflow: visible; padding-left: 0;
+        justify-content: center; flex-wrap: wrap; margin-top: 10px;
+    }
+}
