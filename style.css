@@ -73,39 +73,59 @@ td { padding: 12px; border: 1px solid var(--border-table); vertical-align: middl
 }
 
 /* =========================================================
-   📱 OPTIMIZACIÓN PARA CELULARES
+    📱 OPTIMIZACIÓN PARA MÓVILES (VERSIÓN CORREGIDA)
    ========================================================= */
 @media (max-width: 768px) {
+    
+    /* 1. Recuperamos espacio a los lados del celular */
+    body { padding: 5px !important; }
+    .container { 
+        margin: 5px auto !important; 
+        padding: 15px 10px !important; 
+        width: 100% !important; 
+        box-sizing: border-box !important; 
+    }
+
+    /* 2. Apilamos los botones y filtros */
     .filter-bar { display: flex; flex-direction: column; gap: 12px; }
     .filter-group { width: 100%; margin-right: 0; }
     
     .filter-group select, .filter-group button, .course-selector {
         width: 100%; min-width: 100%; padding: 14px 10px; font-size: 1rem;
+        box-sizing: border-box; /* Evita que los botones se salgan */
     }
     
     .filter-group span[style*="visibility:hidden"] { display: none !important; }
     
+    /* 3. La tabla con su scroll */
     .table-responsive {
         width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
         margin: 15px 0; border: 1px solid var(--border-table); border-radius: 8px;
     }
-    
     table { min-width: 700px; }
     
+    /* 4. Resultados inferiores */
     .results {
         flex-direction: column-reverse !important; align-items: stretch !important;
-        gap: 25px !important; padding: 20px 15px;
+        gap: 20px !important; padding: 15px 10px;
     }
+    .results > div[style*="display: flex"] { flex-direction: column; gap: 10px !important; width: 100%; }
+    .res-box { width: 100%; justify-content: space-between; box-sizing: border-box; }
     
-    .results > div[style*="display: flex"] { flex-direction: column; gap: 15px !important; width: 100%; }
-    .res-box { width: 100%; justify-content: space-between; }
-    
-    .slot-wrapper { width: 100%; }
-    .slot-menu-container { width: 100%; flex-direction: column; align-items: stretch; padding: 10px; }
-    .slot-main-btn { justify-content: center; width: 100%; }
+    /* 5. Slots - CORRECCIÓN DE MARCO CORTADO */
+    .slot-wrapper { width: 100%; box-sizing: border-box; }
+    .slot-menu-container { 
+        width: 100%; flex-direction: column; align-items: stretch; padding: 10px; 
+        box-sizing: border-box; /* ¡Esta es la magia que repara el borde! */
+    }
+    .slot-main-btn { justify-content: center; width: 100%; box-sizing: border-box; }
     
     .slot-options {
         max-width: 100%; opacity: 1; overflow: visible; padding-left: 0;
         justify-content: center; flex-wrap: wrap; margin-top: 10px;
+        gap: 8px;
     }
+    
+    /* Pequeño ajuste para que los botones de slots no se aplasten si hay muchos */
+    .slot-btn { flex: 1 1 auto; min-width: 45px; text-align: center; }
 }
