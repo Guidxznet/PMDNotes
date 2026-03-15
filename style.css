@@ -72,6 +72,11 @@ td { padding: 12px; border: 1px solid var(--border-table); vertical-align: middl
     text-overflow: ellipsis; /* Pone "..." si el texto es muy largo */
 }
 
+/* --- FORZAR ALINEACIÓN PERFECTA DEL BOTÓN BORRAR DATOS --- */
+.filter-bar { align-items: flex-end !important; }
+.filter-group { display: flex !important; flex-direction: column !important; justify-content: flex-end !important; }
+.filter-group button { margin: 0 !important; }
+
 /* =========================================================
     📱 OPTIMIZACIÓN PARA MÓVILES (VERSIÓN CORREGIDA)
    ========================================================= */
@@ -93,6 +98,7 @@ td { padding: 12px; border: 1px solid var(--border-table); vertical-align: middl
     .filter-group select, .filter-group button, .course-selector {
         width: 100%; min-width: 100%; padding: 14px 10px; font-size: 1rem;
         box-sizing: border-box; /* Evita que los botones se salgan */
+        margin: 0 !important; /* Mantiene la alineación en celular */
     }
     
     .filter-group span[style*="visibility:hidden"] { display: none !important; }
