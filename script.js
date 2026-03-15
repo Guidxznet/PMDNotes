@@ -316,9 +316,12 @@ function updateSlotUI() {
     document.querySelectorAll('.slot-btn').forEach(btn => {
         btn.classList.remove('active-slot');
         
-        // Extraemos el número del slot del ID del botón (ej. de 'btn-slot-3' sacamos '3')
+        // Extraemos el número del slot del ID del botón
         let slotId = btn.id.split('-')[2]; 
         btn.innerText = names[slotId] || slotId;
+        
+        // LÍNEA NUEVA: Cuadro flotante nativo con el nombre completo
+        btn.title = names[slotId] ? names[slotId] : "Slot " + slotId;
     });
 
     // 3. Le pone el color cian solo al botón del slot actual

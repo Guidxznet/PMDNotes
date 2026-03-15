@@ -69,7 +69,13 @@ td { padding: 12px; border: 1px solid var(--border-table); vertical-align: middl
     max-width: 90px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Pone "..." si el texto es muy largo */
+    text-overflow: ellipsis;
+    transition: max-width 0.4s ease-in-out, background-color 0.2s; /* Pone "..." si el texto es muy largo */
+}
+/* Magia: Al pasar el mouse (PC) o mantener presionado (Celular), se estira para mostrar todo */
+.slot-btn:hover, 
+.slot-btn:active {
+    max-width: 250px; /* Se expande hasta 250px si el nombre es muy largo */
 }
 
 /* --- FORZAR ALINEACIÓN PERFECTA DEL BOTÓN BORRAR DATOS --- */
