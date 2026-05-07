@@ -13,7 +13,7 @@ const MASTER_DB = [
     { id: 'fisi1', name: "Física I", cred: 5, type: "FISICA", inputs: 10, hasExams: true, w:{pp:1,ep:1,ef:2}, tags: {sist:3, soft:2, ind:3} },
     { id: 'fisi2', name: "Física II", cred: 5, type: "FISICA", inputs: 10, hasExams: true, w:{pp:1, ep:1, ef:1}, tags: {sist:4, soft:3, ind:4} },
     
-    { id: 'discr', name: "Matemática Discreta", cred: 4, type: "GENERIC_DROP1", inputs: 4, hasExams: true, w:{pp:1,ep:1,ef:1}, tags: {sist:3, soft:2, ind:3} },
+    { id: 'discr', name: "Matemática Discreta", cred: 3, type: "GENERIC_DROP1", inputs: 4, hasExams: true, w:{pp:1,ep:1,ef:1}, tags: {sist:3, soft:2, ind:3} },
     { id: 'est1', name: "Estadística y Probabilidades", cred: 3, type: "GENERIC_DROP1", inputs: 4, hasExams: true, w:{pp:1,ep:1,ef:1}, tags: {sist:3, soft:3, ind:4} },
     { id: 'intrcomp', name: "Introducción a la Computación", cred: 2, type: "INTRO_COMP", inputs: 6, hasExams: true, w:{pp:1,ep:1,ef:2}, tags: {sist:1, soft:1, ind:2} },
     { id: 'algor', name: "Algoritmia y Estructura de Datos", cred: 3, type: "INTROSW", inputs: 4, hasExams: true, w:{pp:1,ep:1,ef:2}, tags: {sist:2, soft:2} },
